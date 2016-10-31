@@ -63,7 +63,26 @@
                     <li><a href="contactus.html"> <i class="fa fa-envelope-o"></i> Contact</a></li>
                 </ul>
                 <!-- Righ navbar login -->
-                <form class="navbar-form form-inline navbar-right">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a data-toggle="modal" data-target="#loginModal">
+                    <span class="glyphicon glyphicon-log-in"></span> Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- loginModal -->
+    <div id="loginModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Login </h4>
+            </div>
+            <div class="modal-body">
+				<form class="form-inline">
                     <div class="form-group">
                         <label class="sr-only" for="email">Email address</label>
                         <input type="email" class="form-control" id="email" placeholder="Email">
@@ -76,10 +95,13 @@
                         <label class="navbar-link" for="rememberme"><input name="remember" type="checkbox" id="rememberme"><span style="color:white"><strong> Remember me</strong></span></label>
                     </div>
                     <button type="submit" class="btn btn-info">Sign in</button>
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancel</button>
                 </form>
             </div>
         </div>
-    </nav>  
+        </div>
+    </div>
+      
     <header class="jumbotron">
 
         <!-- Main component for a primary marketing message or call to action -->
@@ -97,7 +119,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-2">
                     <p style="padding:30px"></p>
-                    <a href="#reservation"><button type="button" class="btn btn-warning btn-block"> Reserve Table</button></a>
+                    <a type="button" class="btn btn-warning btn-block" data-toggle="tooltip" title="Or Call us at +852 12345678" data-placement="bottom" href="#reserveform">Reserve Table</a>
                 </div>
             </div>
         </div>
@@ -181,7 +203,7 @@
             </div>
         </div>
 
-        <div id="reservation" class="row row-content">
+        <div id="reserveform" class="row row-content">
             <div class="col-xs-12 col-sm-3">
                 <p style="padding:20px;"></p>
                 <h2>Reserve a Table</h2>
@@ -287,6 +309,11 @@
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+         });
+    </script>
 </body>
 
 </html>
