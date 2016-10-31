@@ -62,8 +62,8 @@
                     <li><a href="contactus.html"> <i class="fa fa-envelope-o"></i> Contact</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a data-toggle="modal" data-target="#loginModal">
-                    <span class="glyphicon glyphicon-log-in"></span> Login</a>
+                    <li><a id="loginmodalbutton">
+                    	<span class="glyphicon glyphicon-log-in"></span> Login</a>
                     </li>
                 </ul>
             </div>
@@ -217,7 +217,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-2">
                     <p style="padding:40px;"></p>
-                    <a type="button" class="btn btn-warning btn-block" data-toggle="modal" data-target="#tablereservation">Reserve Table</a>
+                    <a type="button" class="btn btn-warning btn-block" id="tableReservationButton">Reserve Table</a>
                 </div>
             </div>
         </div>
@@ -419,14 +419,22 @@
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+    <!-- play and pause buttons / modals view -->
     <script>
         $(document).ready(function(){
             $("#mycarousel").carousel( { interval: 2000 } );
                           $("#carousel-pause").click(function(){
                 $("#mycarousel").carousel('pause');
             });
-                        $("#carousel-play").click(function(){
+            $("#carousel-play").click(function(){
                 $("#mycarousel").carousel('cycle');
+            });
+            $("#loginmodalbutton").click(function(){
+                $("#loginModal").modal(); 
+            });
+            $("#tableReservationButton").click(function(){
+               $("#tablereservation").modal(); 
             });
         });
     </script>
