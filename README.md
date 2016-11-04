@@ -1,7 +1,7 @@
 conFusion
 ===================
 
-Installing node
+Installing nodeJS
 ---------------
 
 To install Node on your machine, go to https://nodejs.org and click on the Download button. Depending on your computer's platform (Windows, MacOS or Linux), the appropriate installation package is downloaded. As an example, on a Mac, you will see the following web page. Click on the Download button. Follow along the instructions to install Node on your machine. (Note: Now Node gives you the option of installing a mature and dependable version and a more newer stable version. You can choose to install the mature and dependable version. I will continue to use this version in the course. You can choose to install the newer stable version if you wish. You may not see any perceptible differences between the two as users).
@@ -21,7 +21,7 @@ $
 $ npm -v
 ```
 
-Installing lessc Compiler
+lessc Compiler
 -------------------------
 Type the following at the command prompt:
 
@@ -37,7 +37,7 @@ Go to the less file path and next type the following at the command prompt to co
 $ lessc file.less > file.css
 ```
 
-Installing Bower
+Bower
 ----------------
 
 Install Bower as a global node module. To do this, type the following at the command prompt:
