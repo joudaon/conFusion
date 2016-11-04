@@ -58,7 +58,7 @@ $ bower init
 
 Bower will ask several questions which you should answer.
 
-#### <i class="icon-plus"></i> Installing Bower Components
+#### <i class="icon-plus"></i> Installing Bower packages
 
 ```sh
 $ bower install bootstrap -S
@@ -68,9 +68,38 @@ $ bower install font-awesome -S
 
 #### <i class="icon-wrench"></i> Installing Bower Components once in bower.json file
 
+Installs the project dependencies listed in bower.json
+
 ```sh
 $ bower install 
 ```
+
+#### <i class="icon-th-list"></i> Listing installed packages
+
+You can easily find out which packages are installed using the list command.
+
+```sh
+$ bower list 
+```
+
+#### <i class="icon-refresh"></i> Updating packages
+
+Updating a package is pretty straightforward. If you’ve used a bower.json file you can execute a simple update command to update all of the packages at once. However, the update tool will abide by the version restrictions you’ve specified in the bower.json file.
+
+```sh
+$ bower update 
+```
+To update an individual package you again use the update command, this time specifying the name of the package you wish to update.
+
+```sh
+$ bower update <package> 
+```
+
+#### More info
+
+More info at: 
+- https://bower.io/
+- http://blog.teamtreehouse.com/getting-started-bower
 
 Additional info
 ----------------
