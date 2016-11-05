@@ -6,7 +6,7 @@ angular.module('confusionApp', []).controller('menuController', function() {
   var dishes = [
     {
       name:'Uthapizza',
-      image: 'images/uthapizza.png',
+      image: 'img/uthappizza.png',
       category: 'mains',
       label:'Hot',
       price:'4.99',
@@ -16,7 +16,7 @@ angular.module('confusionApp', []).controller('menuController', function() {
     
     {
       name:'Zucchipakoda',
-      image: 'images/zucchipakoda.png',
+      image: 'img/zucchipakoda.png',
       category: 'appetizer',
       label:'',
       price:'1.99',
@@ -26,7 +26,7 @@ angular.module('confusionApp', []).controller('menuController', function() {
     
     {
       name:'Vadonut',
-      image: 'images/vadonut.png',
+      image: 'img/vadonut.png',
       category: 'appetizer',
       label:'New',
       price:'1.99',
@@ -36,7 +36,7 @@ angular.module('confusionApp', []).controller('menuController', function() {
     
     {
       name:'ElaiCheese Cake',
-      image: 'images/elaicheesecake.png',
+      image: 'img/elaicheesecake.png',
       category: 'dessert',
       label:'',
       price:'2.99',
