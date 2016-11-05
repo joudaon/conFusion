@@ -10,11 +10,16 @@
     <title>Ristorante Con Fusion: Menu</title>
     
     <!-- Bootstrap -->
+    
+	<!-- Builds css styles when executing grunt -->    
+
+    <!-- build:css css/main.css -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="css/bootstrap-social.css" rel="stylesheet">
     <link href="css/mystyles.css" rel="stylesheet">
+	<!-- endbuild -->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -76,76 +81,13 @@
     <!-- Final div -->
     </div>
     
+    <!-- Builds js when executing grunt --> 
+    
+    <!-- build:js scripts/main.js -->
 	<script src="../bower_components/angular/angular.min.js"></script>
-	<script>
-		var app = angular.module('confusionApp', []);
+	<script src="scripts/app.js"></script>
+	<!-- endbuild -->
 		
-		app.controller('menuController', function() {
-			
-			this.tab = 1;
-			this.filtText = '';
-			
-			dishes=[
-			 {
-			   name:'Uthapizza',
-			   image: 'img/uthappizza.png',
-			   category: 'mains',
-			   label:'Hot',
-			   price:'4.99',
-			   description:'A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.',
-			   comment: ''
-			},
-			{
-			   name:'Zucchipakoda',
-			   image: 'img/zucchipakoda.png',
-			   category: 'appetizer',
-			   label:'',
-			   price:'1.99',
-			   description:'Deep fried Zucchini coated with mildly spiced Chickpea flour batter accompanied with a sweet-tangy tamarind sauce',
-			   comment: ''
-			},
-			{
-			   name:'Vadonut',
-			   image: 'img/vadonut.png',
-			   category: 'appetizer',
-			   label:'New',
-			   price:'1.99',
-			   description:'A quintessential ConFusion experience, is it a vada or is it a donut?',
-			   comment: ''
-			},
-			{
-			   name:'ElaiCheese Cake',
-			   image: 'img/elaicheesecake.png',
-			   category: 'dessert',
-			   label:'',
-			   price:'2.99',
-			   description:'A delectable, semi-sweet New York Style Cheese Cake, with Graham cracker crust and spiced with Indian cardamoms',
-			   comment: ''
-			}
-			];
-			
-			this.dishes = dishes;
-			
-            this.select = function(setTab) {
-                this.tab = setTab;
-                if (setTab === 2)
-                    this.filtText = "appetizer";
-                else if (setTab === 3)
-                    this.filtText = "mains";
-                else if (setTab === 4)
-                    this.filtText = "dessert";
-                else
-                    this.filtText = "";
-            }
-            
-            this.isSelected = function (checkTab) {
-                return (this.tab === checkTab);
-            }
-            
-            
-		});
-		
-	</script>
 </body>
 
 </html>
