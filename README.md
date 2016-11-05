@@ -161,6 +161,32 @@ $ npm install grunt-contrib-copy --save-dev
 $ npm install grunt-contrib-clean --save-dev
 ```
 
+#### <i class="icon-plus"></i> Preparing the Distribution Folder and Files
+
+We are now going to use the Grunt usemin module together with concat, cssmin, uglify and filerev to prepare the distribution folder. To do this, install the following Grunt modules:
+
+```sh
+$  npm install grunt-contrib-concat --save-dev
+$ npm install grunt-contrib-cssmin --save-dev
+$ npm install grunt-contrib-uglify --save-dev
+$ npm install grunt-filerev --save-dev
+$ npm install grunt-usemin --save-dev
+```
+
+#### <i class="icon-plus"></i> Watch, Connect and Serve Tasks
+
+Use the Grunt modules watch, connect and watch, to spin up a web server and keep a watch on the files and automatically reload the browser when any of the watched files are updated. To do this, install the following grunt modules:
+
+```sh
+$ npm install grunt-contrib-watch --save-dev
+$ npm install grunt-contrib-connect --save-dev
+```
+
+To run a server:
+```sh
+$ grunt serve
+```
+
 Additional info
 ----------------
 
