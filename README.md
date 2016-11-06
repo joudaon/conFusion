@@ -183,8 +183,38 @@ $ npm install grunt-contrib-connect --save-dev
 ```
 
 To run a server:
+
 ```sh
 $ grunt serve
+```
+
+Gulp
+----
+
+#### <i class="icon-plus"></i> Installing Gulp global
+
+> **Note:** You should already have Node and NPM installed on your computer before you proceed further. Also, those using OSX or Linux should use sudo while installing global packages in node (when you use the -g flag).
+
+At the command prompt, type the following to install Gulp command-line interface (CLI) globally:
+
+```sh
+$ npm install -g gulp
+```
+
+This will install the Gulp globally so that you can use it in all projects.
+
+#### <i class="icon-plus"></i> Installing Gulp in your project
+
+Type the following at the prompt:
+
+```sh
+$ npm install gulp --save-dev
+```
+
+#### <i class="icon-plus"></i> Installing Gulp Plugins
+
+```sh
+$ npm install jshint gulp-jshint jshint-stylish gulp-imagemin gulp-concat gulp-uglify gulp-minify-css gulp-usemin gulp-cache gulp-changed gulp-rev gulp-rename gulp-notify  browser-sync del --save-dev
 ```
 
 Additional info
