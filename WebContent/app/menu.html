@@ -42,7 +42,7 @@
 			<ul class="nav nav-tabs" role="tablist">
 		        <li role="presentation"
 		        	ng-class="{active:isSelected(1)}">
-		        <a ng-click=".select(1)"
+		        <a ng-click="select(1)"
 		         aria-controls="all menu"
 		         role="tab">The Menu</a></li>
 		        <li role="presentation"
@@ -52,7 +52,7 @@
 		         role="tab">Appetizers</a></li>
 		        <li role="presentation"
 		        	ng-class="{active:isSelected(3)}">
-		        <a ng-click=".select(3)"
+		        <a ng-click="select(3)"
 		         aria-controls="mains"
 		         role="tab">Mains</a></li>
 		        <li role="presentation"
@@ -90,6 +90,8 @@
     <!-- build:js scripts/main.js -->
 	<script src="../bower_components/angular/angular.min.js"></script>
 	<script src="scripts/app.js"></script>
+	<script src="scripts/controllers.js"></script>
+	<script src="scripts/services.js"></script>
 	<!-- endbuild -->
 		
 </body>
