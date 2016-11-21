@@ -217,6 +217,18 @@ $ npm install gulp --save-dev
 $ npm install jshint gulp-jshint jshint-stylish gulp-imagemin gulp-concat gulp-uglify gulp-minify-css gulp-usemin gulp-cache gulp-changed gulp-rev gulp-rename gulp-notify  browser-sync del --save-dev
 ```
 
+
+Json Server
+-----------
+
+```sh
+$ npm install json-server -g
+```
+
+```sh
+$  json-server --watch db.json
+```
+
 Additional info
 ----------------
 
