@@ -229,6 +229,18 @@ $ npm install json-server -g
 $  json-server --watch db.json
 ```
 
+ngResource
+-----------
+
+```sh
+$ bower install angular-resource -S
+```
+
+```sh
+$  json-server --watch db.json
+```
+
+
 Additional info
 ----------------
 
