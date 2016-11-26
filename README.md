@@ -263,13 +263,35 @@ In order to set up browser environments to carry out the tests, set up PhantomJS
 $  npm install phantomjs karma-phantomjs-launcher karma-chrome-launcher --save-dev
 ```
 
-Setting up Unit Test Environment
---------------------------------
-
+Angular mocks
 ```sh
 $ bower install angular-mocks -S
 ```
 
+Run Unit testing
+
+```sh
+$ karma start karma.conf.js
+```
+
+
+Setting up an E2E (End to End) Test Environment
+-----------------------------------------------
+
+Set up the protractor tool globally for use in e2e testing:
+```sh
+$ npm install protractor -g
+```
+
+The above also installs webdriver-manager. Then, update your web drivers by typing:
+```sh
+$ webdriver-manager update
+```
+
+Running E2E tests: 
+```sh
+$ protractor protractor.conf.js
+```
 
 Additional info
 ----------------
