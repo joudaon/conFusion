@@ -226,7 +226,7 @@ $ npm install json-server -g
 ```
 
 ```sh
-$  json-server --watch db.json
+$ json-server --watch db.json
 ```
 
 ngResource
@@ -237,7 +237,37 @@ $ bower install angular-resource -S
 ```
 
 ```sh
-$  json-server --watch db.json
+$ json-server --watch db.json
+```
+
+Setting up Unit Test Environment
+--------------------------------
+
+Jasmine core:
+```sh
+$ npm install jasmine-core --save-dev
+```
+
+Karma:
+```sh
+$ npm install karma-cli -g
+```
+
+karma-jasmine plugin to make use of Jasmine with Karma
+```sh
+$ npm install karma-jasmine --save-dev
+```
+
+In order to set up browser environments to carry out the tests, set up PhantomJS, and Karma launchers for PhantomJS and Chrome as follows:
+```sh
+$  npm install phantomjs karma-phantomjs-launcher karma-chrome-launcher --save-dev
+```
+
+Setting up Unit Test Environment
+--------------------------------
+
+```sh
+$ bower install angular-mocks -S
 ```
 
 
