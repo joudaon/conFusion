@@ -293,6 +293,20 @@ Running E2E tests:
 $ protractor protractor.conf.js
 ```
 
+
+Yo installation
+-----------------------------------------------
+
+Intalling Yo globally:
+```sh
+$ npm install yo -g
+```
+
+```sh
+$ npm install generator-angular -g
+```
+
+
 Additional info
 ----------------
 
