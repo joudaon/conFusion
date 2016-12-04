@@ -116,10 +116,10 @@ angular.module('confusionApp')
             }
         }])
 
-        // implement the IndexController and About Controller here
+        
+        //Index Controller
         .controller ('IndexController', ['$scope', 'menuFactory', 'corporateFactory', function($scope, menuFactory, corporateFactory){
         	
-	        	$scope.leader = corporateFactory.getLeader(3);
 	        	$scope.showDish = false;
                 $scope.message="Loading ...";
                 $scope.dish = menuFactory.getDishes().get({id:0})
@@ -143,13 +143,24 @@ angular.module('confusionApp')
                         $scope.message = "Error: "+response.status + " " + response.statusText;
                     }
                 );
+                
+                $scope.showLeader = false;
+                $scope.message="Loading ...";
+                $scope.leader = corporateFactory.getLeaders().get({id:3})
+                        .$promise.then(
+                            function(response){
+                                $scope.leader = response;
+                                $scope.showLeader = true;
+                            },
+                            function(response) {
+                                $scope.message = "Error: "+response.status + " " + response.statusText;
+                            }
+                        );
 	            
     	}])
     	
-         .controller('AboutController', ['$scope', '$stateParams', 'corporateFactory', function($scope, $stateParams, corporateFactory) {
-
-            
-            /* $scope.leaders = corporateFactory.getLeaders();*/
+        //About Controller
+    	.controller('AboutController', ['$scope', '$stateParams', 'corporateFactory', function($scope, $stateParams, corporateFactory) {
             
             $scope.showLeaders = false;
             $scope.message = "Loading ...";
@@ -162,19 +173,6 @@ angular.module('confusionApp')
                     $scope.message = "Error: "+response.status + " " + response.statusText;
                 });
              
-             $scope.showLeader = false;
-                $scope.message="Loading ...";
-                $scope.leader = corporateFactory.getLeaders().get({id:3})
-                        .$promise.then(
-                            function(response){
-                                $scope.leader = response;
-                                $scope.showLeader = true;
-                            },
-                            function(response) {
-                                $scope.message = "Error: "+response.status + " " + response.statusText;
-                            }
-                        );
-                      
         }]);
 
 ;
