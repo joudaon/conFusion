@@ -295,7 +295,7 @@ $ protractor protractor.conf.js
 
 
 Yo installation
------------------------------------------------
+---------------
 
 Intalling Yo globally:
 ```sh
@@ -306,6 +306,27 @@ $ npm install yo -g
 $ npm install generator-angular -g
 ```
 
+Setting up Ionic Frameowork
+---------------------------
+
+```sh
+$ npm install cordova ionic -g
+```
+#### <i class="icon-plus"></i> Creating an Ionic Project
+
+Go to a convenient location on your computer and create a folder named Ionic. Then move to that folder in the command window.
+To scaffold out a new Ionic project, type the following at the command prompt:
+
+```sh
+$ ionic start conFusion sidemenu
+```
+
+Move to the conFusion folder and examine the contents.
+To see the resulting project in your browser, type the following at the command prompt:
+
+```sh
+$ ionic serve
+```
 
 Additional info
 ----------------
