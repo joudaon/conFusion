@@ -328,6 +328,12 @@ To see the resulting project in your browser, type the following at the command 
 $ ionic serve
 ```
 
+To see the resulting project as an IOS / Android in the browser:
+
+```sh
+$ ionic serve --lab
+```
+
 Additional info
 ----------------
 
