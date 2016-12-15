@@ -73,6 +73,7 @@ angular.module('conFusion.controllers', [])
   };  
 })
 
+		//MENU CONTROLLER
         .controller('MenuController', ['$scope', 'menuFactory', 'favoriteFactory', 'baseURL', '$ionicListDelegate', function ($scope, menuFactory, favoriteFactory, baseURL, $ionicListDelegate) {
             
         	$scope.baseURL = baseURL;
@@ -124,6 +125,7 @@ angular.module('conFusion.controllers', [])
             }            
         }])
 
+        //CONTACT CONTROLLER
         .controller('ContactController', ['$scope', function($scope) {
 
             $scope.feedback = {mychannel:"", firstName:"", lastName:"", agree:false, email:"" };
@@ -135,6 +137,7 @@ angular.module('conFusion.controllers', [])
                         
         }])
 
+        //FEEDBACK CONTROLLER
         .controller('FeedbackController', ['$scope', 'feedbackFactory', function($scope,feedbackFactory) {
             
             $scope.sendFeedback = function() {
@@ -156,6 +159,7 @@ angular.module('conFusion.controllers', [])
             };
         }])
 
+        //DISHDETAIL CONTROLLER
         .controller('DishDetailController', ['$scope', '$stateParams', 'menuFactory', 'baseURL', function($scope, $stateParams, menuFactory, baseURL) {
             
         	$scope.baseURL = baseURL;
@@ -177,6 +181,7 @@ angular.module('conFusion.controllers', [])
             
         }])
 
+        //DISHCOMMENT CONTROLLER
         .controller('DishCommentController', ['$scope', 'menuFactory', function($scope,menuFactory) {
             
             $scope.mycomment = {rating:5, comment:"", author:"", date:""};
@@ -197,6 +202,7 @@ angular.module('conFusion.controllers', [])
 
         // implement the IndexController and About Controller here
 
+        //INDEX CONTROLLER
         .controller('IndexController', ['$scope', 'menuFactory', 'corporateFactory', 'baseURL', function($scope, menuFactory, corporateFactory, baseURL) {
                                         
         				$scope.baseURL = baseURL;
@@ -216,7 +222,8 @@ angular.module('conFusion.controllers', [])
                         $scope.promotion = menuFactory.getPromotion().get({id:0});
             
                     }])
-
+                    
+        //FAVORITES CONTROLLER
         .controller('AboutController', ['$scope', 'corporateFactory', 'baseURL', function($scope, corporateFactory, baseURL) {
             
         			$scope.baseURL = baseURL;
@@ -224,6 +231,47 @@ angular.module('conFusion.controllers', [])
                     console.log($scope.leaders);
             
                     }])
+                 
+        //FAVORITES CONTROLLER
+		.controller('FavoritesController', ['$scope', 'menuFactory', 'favoriteFactory', 'baseURL', '$ionicListDelegate', function ($scope, menuFactory, favoriteFactory, baseURL, $ionicListDelegate) {
+		
+		    $scope.baseURL = baseURL;
+		    $scope.shouldShowDelete = false;
+		
+		    $scope.favorites = favoriteFactory.getFavorites();
+		
+		    $scope.dishes = menuFactory.getDishes().query(
+		        function (response) {
+		            $scope.dishes = response;
+		        },
+		        function (response) {
+		            $scope.message = "Error: " + response.status + " " + response.statusText;
+		        });
+		    console.log($scope.dishes, $scope.favorites);
+		
+		    $scope.toggleDelete = function () {
+		        $scope.shouldShowDelete = !$scope.shouldShowDelete;
+		        console.log($scope.shouldShowDelete);
+		    }
+		
+		    $scope.deleteFavorite = function (index) {
+		        
+		        favoriteFactory.deleteFromFavorites(index);
+		        $scope.shouldShowDelete = false;
+		
+		    }}])
+		    
+		    .filter('favoriteFilter', function () {
+			    return function (dishes, favorites) {
+			        var out = [];
+			        for (var i = 0; i < favorites.length; i++) {
+			            for (var j = 0; j < dishes.length; j++) {
+			                if (dishes[j].id === favorites[i].id)
+			                    out.push(dishes[j]);
+			            }
+			        }
+			        return out;
+			}});
 
 ;
 
