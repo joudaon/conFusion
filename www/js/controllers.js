@@ -163,7 +163,7 @@ angular.module('conFusion.controllers', [])
         //////////////////////////////////////
         //DISHDETAIL CONTROLLER
         //////////////////////////////////////
-        .controller('DishDetailController', ['$scope', '$stateParams', 'menuFactory', 'baseURL', '$ionicPopover', 'favoriteFactory', '$ionicLoading', '$ionicModal', function($scope, $stateParams, menuFactory, baseURL, $ionicPopover, favoriteFactory, $ionicLoading, $ionicModal) {
+        .controller('DishDetailController', ['$scope', '$stateParams', 'menuFactory', 'baseURL', '$ionicPopover', 'favoriteFactory', '$ionicLoading', '$ionicModal', '$timeout', function($scope, $stateParams, menuFactory, baseURL, $ionicPopover, favoriteFactory, $ionicLoading, $ionicModal, $timeout) {
             
         	$scope.baseURL = baseURL;
             $scope.dish = {};
@@ -182,8 +182,7 @@ angular.module('conFusion.controllers', [])
             );
             
             //Assignment 2
-            //Dish detail popover open
-            // .fromTemplateUrl() method
+            //DISH DETAIL POPOVER OPEN
             $ionicPopover.fromTemplateUrl('templates/dish-detail-popover.html', {
               scope: $scope
             }).then(function(popover) {
@@ -211,7 +210,6 @@ angular.module('conFusion.controllers', [])
             //END POPOVER
             
             //COMMENT MODAL
-            //Form data for the reserve modal
             $scope.comment = {};
             
             // Create the reserve modal that we will use later
@@ -237,12 +235,15 @@ angular.module('conFusion.controllers', [])
             });
             
             $scope.addComment = function () {
-          	    $scope.openDishComment();
-          	    $scope.closePopover();
-          	  };
+                $scope.closePopover();
+
+                $timeout(function () {
+                  $scope.openDishComment()
+                }, 0);
+              };
             //END COMMENT MODAL
             
-            //Add dish to favorites 
+            //ADD DISH TO FAVORITES
             $scope.addFavorite = function () {
                 favoriteFactory.addToFavorites($scope.dish.id);
                 $ionicLoading.show({
@@ -252,9 +253,9 @@ angular.module('conFusion.controllers', [])
                 });
                 $scope.closePopover();
               };
+             //END ADD DISH TO FAVORITES
             
-           	//DISHCOMMENT  
-              
+           	//DISHCOMMENT                
             $scope.mycomment = {rating:5, comment:"", author:"", date:""};
             
             $scope.submitComment = function () {
@@ -270,8 +271,6 @@ angular.module('conFusion.controllers', [])
                 $scope.closeDishComment();
             }
 
-            
-            //Assignment 2 end
         }])
 
         //DISHCOMMENT CONTROLLER
