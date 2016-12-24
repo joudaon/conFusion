@@ -75,7 +75,7 @@ angular.module('conFusion.controllers', [])
 })
 
 		//MENU CONTROLLER
-        .controller('MenuController', ['$scope', 'menuFactory', 'favoriteFactory', 'baseURL', '$ionicListDelegate', function ($scope, menuFactory, favoriteFactory, baseURL, $ionicListDelegate) {
+        .controller('MenuController', ['$scope', 'menuFactory', 'favoriteFactory', 'baseURL', '$ionicListDelegate', '$ionicLoading', 'dishes', function ($scope, menuFactory, favoriteFactory, baseURL, $ionicListDelegate, $ionicLoading, dishes) {
             
         	$scope.baseURL = baseURL;
             $scope.tab = 1;
@@ -84,14 +84,7 @@ angular.module('conFusion.controllers', [])
             $scope.showMenu = false;
             $scope.message = "Loading ...";
             
-            menuFactory.query(
-                function(response) {
-                    $scope.dishes = response;
-                    $scope.showMenu = true;
-                },
-                function(response) {
-                    $scope.message = "Error: "+response.status + " " + response.statusText;
-                });
+            $scope.dishes = dishes;
 
                         
             $scope.select = function(setTab) {
@@ -122,6 +115,11 @@ angular.module('conFusion.controllers', [])
             $scope.addFavorite = function (index) {
                 console.log("index is " + index);
                 favoriteFactory.addToFavorites(index);
+                $ionicLoading.show({
+                    template: 'Added to favorites!',
+                    noBackdrop: true,
+                    duration: 1000
+                  });
                 $ionicListDelegate.closeOptionButtons();
             }            
         }])
@@ -186,10 +184,7 @@ angular.module('conFusion.controllers', [])
             $scope.closePopover = function() {
               $scope.popover.hide();
             };
-            //Cleanup the popover when we're done with it!
-            $scope.$on('$destroy', function() {
-              $scope.popover.remove();
-            });
+
             // Execute action on hidden popover
             $scope.$on('popover.hidden', function() {
               // Execute action
@@ -286,31 +281,22 @@ angular.module('conFusion.controllers', [])
         // implement the IndexController and About Controller here
 
         //INDEX CONTROLLER
-        .controller('IndexController', ['$scope', 'menuFactory', 'promotionFactory', 'corporateFactory', 'baseURL', function($scope, menuFactory, promotionFactory, corporateFactory, baseURL) {
+        .controller('IndexController', ['$scope', 'menuFactory', 'promotionFactory', 'corporateFactory', 'baseURL', 'dish','leader','promotion', function($scope, menuFactory, promotionFactory, corporateFactory, baseURL, dish, leader, promotion) {
                                         
         				$scope.baseURL = baseURL;
-                        $scope.leader = corporateFactory.get({id:3});
+                        $scope.leader = leader;
                         $scope.showDish = false;
-                        $scope.message="Loading ...";
-                        $scope.dish = menuFactory.get({id:0})
-                        .$promise.then(
-                            function(response){
-                                $scope.dish = response;
-                                $scope.showDish = true;
-                            },
-                            function(response) {
-                                $scope.message = "Error: "+response.status + " " + response.statusText;
-                            }
-                        );
-                        $scope.promotion = promotionFactory.get({id:0});
+                        $scope.message="Loading ...";                       
+                        $scope.dish = dish;
+                        $scope.promotion = promotion;
             
                     }])
                     
         //ABOUT CONTROLLER
-        .controller('AboutController', ['$scope', 'corporateFactory', 'baseURL', function($scope, corporateFactory, baseURL) {
+        .controller('AboutController', ['$scope', 'corporateFactory', 'baseURL', 'leaders', function($scope, corporateFactory, baseURL, leaders) {
             
         			$scope.baseURL = baseURL;
-                    $scope.leaders = corporateFactory.query();
+                    $scope.leaders = leaders;
                     console.log($scope.leaders);
             
                     }])

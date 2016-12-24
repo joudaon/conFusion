@@ -1,6 +1,10 @@
 'use strict';
 
 angular.module('conFusion.services', ['ngResource'])
+		//PC baseURL
+        .constant("baseURL","http://localhost:3000/")
+        //Mobile baseURL
+        //.constant("baseURL","http://192.168.169.128:3000/")
         .constant("baseURL","http://localhost:3000/")
         .factory('menuFactory', ['$resource', 'baseURL', function($resource,baseURL) {
     
@@ -30,9 +34,9 @@ angular.module('conFusion.services', ['ngResource'])
     
         }])
         
-        .factory('favoriteFactory', ['$resource', 'baseURL', function ($resource, baseURL) {
+        .factory('favoriteFactory', ['$resource', 'baseURL', '$localStorage', function ($resource, baseURL, $localStorage) {
 		    var favFac = {};
-		    var favorites = [];
+		    var favorites = $localStorage.getObject('favorites', '[]');
 		
 		    favFac.addToFavorites = function (index) {
 		        for (var i = 0; i < favorites.length; i++) {
@@ -40,6 +44,7 @@ angular.module('conFusion.services', ['ngResource'])
 		                return;
 		        }
 		        favorites.push({id: index});
+		        $localStorage.storeObject('favorites',favorites);
 		    };
 		    
 		    favFac.deleteFromFavorites = function (index) {
@@ -48,6 +53,7 @@ angular.module('conFusion.services', ['ngResource'])
 		                favorites.splice(i, 1);
 		            }
 		        }
+		        $localStorage.storeObject('favorites',favorites);
 		    }
 
 		    favFac.getFavorites = function () {
