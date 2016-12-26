@@ -158,12 +158,12 @@ $ npm install -g cordova
 
 Create the App
 ```sh
-$ cordova create hello com.example.hello HelloWorld
+$ cordova conFusion hello com.example.conFusion ConFusion
 ```
 Add platform
 ```sh
-$ cd hello
-$ cordova platform add android --save
+$ cd conFusion
+$ cordova platform add android@6.1.0 --save
 $ cordova platform ls
 ```
 
@@ -182,12 +182,22 @@ https://cordova.apache.org/docs/en/latest/guide/cli/
 Splash Screen
 -------------
 
+Create a folder called "resources" and add there "splahs.png" and "icon.png" images.
+
+At the command prompt, type the following to prepare the icon and splash screen images for different screen resolutions and densities:
 ```sh
 $ ionic resources
 ```
 
+Known issues
+------------
+
+Q: Splash page is not displayed in 6.0.0 version.
+A: When adding the platform add 6.1.0 version (http://stackoverflow.com/questions/40502425/cordova-splash-screen-not-displaying-image)
+
+
 Additional info
-----------------
+---------------
 
 #### <i class="icon-help-circled"></i> Help for writing readme.md document
 

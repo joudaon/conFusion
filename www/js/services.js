@@ -2,9 +2,9 @@
 
 angular.module('conFusion.services', ['ngResource'])
 		//PC baseURL
-        .constant("baseURL","http://localhost:3000/")
+        //.constant("baseURL","http://localhost:3000/")
         //Mobile baseURL
-        //.constant("baseURL","http://192.168.169.128:3000/")
+        .constant("baseURL","http://89.0.2.161:3000/")
         .factory('menuFactory', ['$resource', 'baseURL', function($resource,baseURL) {
     
                 return $resource (baseURL + "dishes/:id", null, {
