@@ -75,14 +75,13 @@ angular.module('conFusion.controllers', [])
 })
 
 		//MENU CONTROLLER
-        .controller('MenuController', ['$scope', 'menuFactory', 'favoriteFactory', 'baseURL', '$ionicListDelegate', '$ionicLoading', 'dishes', function ($scope, menuFactory, favoriteFactory, baseURL, $ionicListDelegate, $ionicLoading, dishes) {
+        .controller('MenuController', ['$scope', 'dishes', 'menuFactory', 'favoriteFactory', 'baseURL', '$ionicListDelegate', '$ionicPlatform', '$cordovaLocalNotification', '$cordovaToast', function ($scope, dishes, menuFactory, favoriteFactory, baseURL, $ionicListDelegate, $ionicPlatform, $cordovaLocalNotification, $cordovaToast) {
             
         	$scope.baseURL = baseURL;
             $scope.tab = 1;
             $scope.filtText = '';
             $scope.showDetails = false;
             $scope.showMenu = false;
-            $scope.message = "Loading ...";
             
             $scope.dishes = dishes;
 
@@ -115,12 +114,28 @@ angular.module('conFusion.controllers', [])
             $scope.addFavorite = function (index) {
                 console.log("index is " + index);
                 favoriteFactory.addToFavorites(index);
-                $ionicLoading.show({
-                    template: 'Added to favorites!',
-                    noBackdrop: true,
-                    duration: 1000
-                  });
                 $ionicListDelegate.closeOptionButtons();
+                
+                $ionicPlatform.ready(function () {
+                    $cordovaLocalNotification.schedule({
+                        id: 1,
+                        title: "Added Favorite",
+                        text: $scope.dishes[index].name
+                    }).then(function () {
+                        console.log('Added Favorite '+$scope.dishes[index].name);
+                    },
+                    function () {
+                        console.log('Failed to add Notification ');
+                    });
+
+                    $cordovaToast
+                      .show('Added Favorite '+$scope.dishes[index].name, 'long', 'center')
+                      .then(function (success) {
+                          // success
+                      }, function (error) {
+                          // error
+                      });
+                });
             }            
         }])
 
@@ -161,12 +176,11 @@ angular.module('conFusion.controllers', [])
         //////////////////////////////////////
         //DISHDETAIL CONTROLLER
         //////////////////////////////////////
-        .controller('DishDetailController', ['$scope', '$stateParams', 'dish', 'menuFactory', 'baseURL', '$ionicPopover', 'favoriteFactory', '$ionicLoading', '$ionicModal', '$timeout', function($scope, $stateParams, dish, menuFactory, baseURL, $ionicPopover, favoriteFactory, $ionicLoading, $ionicModal, $timeout) {
+        .controller('DishDetailController', ['$scope', '$stateParams', 'dish', 'menuFactory', 'baseURL', '$ionicPopover', 'favoriteFactory', '$ionicModal', function($scope, $stateParams, dish, menuFactory, baseURL, $ionicPopover, favoriteFactory, $ionicModal) {
             
         	$scope.baseURL = baseURL;
             $scope.dish = {};
             $scope.showDish = false;
-            $scope.message="Loading ...";
             
             $scope.dish = dish;
             
@@ -232,11 +246,6 @@ angular.module('conFusion.controllers', [])
             //ADD DISH TO FAVORITES
             $scope.addFavorite = function () {
                 favoriteFactory.addToFavorites($scope.dish.id);
-                $ionicLoading.show({
-                  template: 'Added to favorites!',
-                  noBackdrop: true,
-                  duration: 1000
-                });
                 $scope.closePopover();
               };
              //END ADD DISH TO FAVORITES
@@ -285,8 +294,7 @@ angular.module('conFusion.controllers', [])
                                         
         				$scope.baseURL = baseURL;
                         $scope.leader = leader;
-                        $scope.showDish = false;
-                        $scope.message="Loading ...";                       
+                        $scope.showDish = false;                     
                         $scope.dish = dish;
                         $scope.promotion = promotion;
             
@@ -302,7 +310,7 @@ angular.module('conFusion.controllers', [])
                     }])
                  
         //FAVORITES CONTROLLER
-		.controller('FavoritesController', ['$scope', 'dishes', 'favorites', 'favoriteFactory','baseURL', '$ionicListDelegate', '$ionicPopup', '$ionicLoading', '$timeout', function ($scope, dishes, favorites, favoriteFactory, baseURL, $ionicListDelegate, $ionicPopup, $ionicLoading, $timeout) {
+		.controller('FavoritesController', ['$scope', 'dishes', 'favorites', 'favoriteFactory','baseURL', '$ionicListDelegate', '$ionicPopup', function ($scope, dishes, favorites, favoriteFactory, baseURL, $ionicListDelegate, $ionicPopup) {
 		
 			   	$scope.baseURL = baseURL;
 			    $scope.shouldShowDelete = false;

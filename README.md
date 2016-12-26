@@ -185,9 +185,26 @@ Splash Screen
 Create a folder called "resources" and add there "splash.png" and "icon.png" images.
 
 At the command prompt, type the following to prepare the icon and splash screen images for different screen resolutions and densities:
+
 ```sh
 $ ionic resources
 ```
+
+Notifications
+-------------
+
+Adding the required Cordova Plugins: 
+
+Cordova plugin for the local notifications
+```sh
+$ ionic resources
+```
+
+Cordova Toast plugin 
+```sh
+$ ionic resources
+```
+
 
 Known issues
 ------------
