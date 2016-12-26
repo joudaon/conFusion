@@ -21,21 +21,6 @@ $
 $ npm -v
 ```
 
-lessc Compiler
--------------------------
-Type the following at the command prompt:
-
-```sh
-$ npm install -g less
-```
-
-This will install the less NPM module globally so that it can be used by any project. Note: if you are executing this on a Mac or Linux machine, you may need to add "sudo" to the beginning of this command. This will make available the lessc compiler for us so that we can compile Less files.
-
-Go to the less file path and next type the following at the command prompt to compile the Less file into a CSS file:
-
-```sh
-$ lessc file.less > file.css
-```
 
 Bower
 ----------------
@@ -111,112 +96,6 @@ More info at:
 - https://bower.io/
 - http://blog.teamtreehouse.com/getting-started-bower
 
-Grunt
-----------------
-
-Why use a task runner?
-
-In one word: automation. The less work you have to do when performing repetitive tasks like minification, compilation, unit testing, linting, etc, the easier your job becomes. After you've configured it through a Gruntfile, a task runner can do most of that mundane work for you—and your team—with basically zero effort.
-
-Why use Grunt?
-
-The Grunt ecosystem is huge and it's growing every day. With literally hundreds of plugins to choose from, you can use Grunt to automate just about anything with a minimum of effort. If someone hasn't already built what you need, authoring and publishing your own Grunt plugin to npm is a breeze. See how to get started.
-
-#### <i class="icon-plus"></i> Installing Grunt
-
-> **Note:** You should already have Node and NPM installed on your computer before you proceed further. Also, those using OSX or Linux should use sudo while installing global packages in node (when you use the -g flag).
-
-At the command prompt, type the following to install Grunt command-line interface (CLI):
-
-```sh
-$ npm install -g grunt-cli
-```
-
-#### <i class="icon-plus"></i> Installing Grunt in your project
-
-```sh
-$ npm install grunt --save-dev
-```
-
-This will install local per-project Grunt to use within your project.
-
-#### <i class="icon-plus"></i> Configuring JSHint Task
-
-The JSHint task validates our JavaScript code and points out errors and gives warnings about minor violations. To do this, you need to include some Grunt modules that help us with the tasks. Install the following modules by typing the following at the prompt:
-
-```sh
-$ npm install grunt-contrib-jshint --save-dev
-$ npm install jshint-stylish --save-dev
-$ npm install time-grunt --save-dev
-$ npm install jit-grunt --save-dev
-```
-The first one installs the Grunt module for JSHint, and the second one adds further to print out the messages from JSHint in a better format. The time-grunt module generates time statistics about how much time each task consumes, and jit-grunt enables us to include the necessary downloaded Grunt modules when needed for the tasks.
-
-#### <i class="icon-plus"></i> Copying files and cleaning up the Dist folder
-
-Install the Grunt modules to copy over files to a distribution folder named dist, and clean up the dist folder when needed. To do this, install the following Grunt modules:
-
-```sh
-$ npm install grunt-contrib-copy --save-dev
-$ npm install grunt-contrib-clean --save-dev
-```
-
-#### <i class="icon-plus"></i> Preparing the Distribution Folder and Files
-
-We are now going to use the Grunt usemin module together with concat, cssmin, uglify and filerev to prepare the distribution folder. To do this, install the following Grunt modules:
-
-```sh
-$  npm install grunt-contrib-concat --save-dev
-$ npm install grunt-contrib-cssmin --save-dev
-$ npm install grunt-contrib-uglify --save-dev
-$ npm install grunt-filerev --save-dev
-$ npm install grunt-usemin --save-dev
-```
-
-#### <i class="icon-plus"></i> Watch, Connect and Serve Tasks
-
-Use the Grunt modules watch, connect and watch, to spin up a web server and keep a watch on the files and automatically reload the browser when any of the watched files are updated. To do this, install the following grunt modules:
-
-```sh
-$ npm install grunt-contrib-watch --save-dev
-$ npm install grunt-contrib-connect --save-dev
-```
-
-To run a server:
-
-```sh
-$ grunt serve
-```
-
-Gulp
-----
-
-#### <i class="icon-plus"></i> Installing Gulp global
-
-> **Note:** You should already have Node and NPM installed on your computer before you proceed further. Also, those using OSX or Linux should use sudo while installing global packages in node (when you use the -g flag).
-
-At the command prompt, type the following to install Gulp command-line interface (CLI) globally:
-
-```sh
-$ npm install -g gulp
-```
-
-This will install the Gulp globally so that you can use it in all projects.
-
-#### <i class="icon-plus"></i> Installing Gulp in your project
-
-Type the following at the prompt:
-
-```sh
-$ npm install gulp --save-dev
-```
-
-#### <i class="icon-plus"></i> Installing Gulp Plugins
-
-```sh
-$ npm install jshint gulp-jshint jshint-stylish gulp-imagemin gulp-concat gulp-uglify gulp-minify-css gulp-usemin gulp-cache gulp-changed gulp-rev gulp-rename gulp-notify  browser-sync del --save-dev
-```
-
 
 Json Server
 -----------
@@ -240,71 +119,6 @@ $ bower install angular-resource -S
 $ json-server --watch db.json
 ```
 
-Setting up Unit Test Environment
---------------------------------
-
-Jasmine core:
-```sh
-$ npm install jasmine-core --save-dev
-```
-
-Karma:
-```sh
-$ npm install karma-cli -g
-```
-
-karma-jasmine plugin to make use of Jasmine with Karma
-```sh
-$ npm install karma-jasmine --save-dev
-```
-
-In order to set up browser environments to carry out the tests, set up PhantomJS, and Karma launchers for PhantomJS and Chrome as follows:
-```sh
-$  npm install phantomjs karma-phantomjs-launcher karma-chrome-launcher --save-dev
-```
-
-Angular mocks
-```sh
-$ bower install angular-mocks -S
-```
-
-Run Unit testing
-
-```sh
-$ karma start karma.conf.js
-```
-
-
-Setting up an E2E (End to End) Test Environment
------------------------------------------------
-
-Set up the protractor tool globally for use in e2e testing:
-```sh
-$ npm install protractor -g
-```
-
-The above also installs webdriver-manager. Then, update your web drivers by typing:
-```sh
-$ webdriver-manager update
-```
-
-Running E2E tests: 
-```sh
-$ protractor protractor.conf.js
-```
-
-
-Yo installation
----------------
-
-Intalling Yo globally:
-```sh
-$ npm install yo -g
-```
-
-```sh
-$ npm install generator-angular -g
-```
 
 Setting up Ionic Frameowork
 ---------------------------
@@ -332,6 +146,44 @@ To see the resulting project as an IOS / Android in the browser:
 
 ```sh
 $ ionic serve --lab
+```
+
+Cordova app
+-------------
+
+Installing Cordova
+```sh
+$ npm install -g cordova
+```
+
+Create the App
+```sh
+$ cordova create hello com.example.hello HelloWorld
+```
+Add platform
+```sh
+$ cd hello
+$ cordova platform add android --save
+$ cordova platform ls
+```
+
+Build the app:
+```sh
+$ cordova build
+```
+
+Test the app:
+```sh
+$ cordova emulate android
+```
+
+https://cordova.apache.org/docs/en/latest/guide/cli/
+
+Splash Screen
+-------------
+
+```sh
+$ ionic resources
 ```
 
 Additional info
