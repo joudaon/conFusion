@@ -177,7 +177,7 @@ Test the app:
 $ cordova emulate android
 ```
 
-https://cordova.apache.org/docs/en/latest/guide/cli/
+More info: https://cordova.apache.org/docs/en/latest/guide/cli/
 
 Splash Screen
 -------------
@@ -193,6 +193,7 @@ Known issues
 ------------
 
 Q: Splash page is not displayed in 6.0.0 version.
+
 A: When adding the platform add 6.1.0 version (http://stackoverflow.com/questions/40502425/cordova-splash-screen-not-displaying-image)
 
 
