@@ -158,7 +158,7 @@ $ npm install -g cordova
 
 Create the App
 ```sh
-$ cordova conFusion hello com.example.conFusion ConFusion
+$ cordova conFusion com.example.conFusion ConFusion
 ```
 Add platform
 ```sh
@@ -182,7 +182,7 @@ https://cordova.apache.org/docs/en/latest/guide/cli/
 Splash Screen
 -------------
 
-Create a folder called "resources" and add there "splahs.png" and "icon.png" images.
+Create a folder called "resources" and add there "splash.png" and "icon.png" images.
 
 At the command prompt, type the following to prepare the icon and splash screen images for different screen resolutions and densities:
 ```sh
