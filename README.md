@@ -205,6 +205,13 @@ Cordova Toast plugin
 $ ionic resources
 ```
 
+Camera plugin
+-------------
+
+Adding camera plugin:
+```sh
+$ ionic plugin add cordova-plugin-camera
+```
 
 Known issues
 ------------
