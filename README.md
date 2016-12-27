@@ -213,6 +213,14 @@ Adding camera plugin:
 $ ionic plugin add cordova-plugin-camera
 ```
 
+Image Picker
+------------
+
+Adding image picker support:
+```sh
+$ cordova plugin add cordova-plugin-image-picker
+```
+
 Known issues
 ------------
 

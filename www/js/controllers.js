@@ -1,6 +1,6 @@
 angular.module('conFusion.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, $localStorage, $ionicPlatform, $cordovaCamera) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $localStorage, $ionicPlatform, $cordovaCamera, $cordovaImagePicker) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -72,7 +72,6 @@ angular.module('conFusion.controllers', [])
     }, 1000);
   };  
   
-  
   //REGISTRATION
   $scope.registration = {};
   //Create the registration modal that we will use later
@@ -101,7 +100,10 @@ angular.module('conFusion.controllers', [])
           $scope.closeRegister();
       }, 1000);
   };
-  //camera options
+  
+  //IMAGES FOR RESERVATION
+  
+  //Camera
   $ionicPlatform.ready(function() {
       var options = {
           quality: 50,
@@ -124,8 +126,32 @@ angular.module('conFusion.controllers', [])
           $scope.registerform.show();
 
       };
+      
+      //Gallery
+      $scope.selectPicture = function () {
+    	  
+    	  var options = {
+    			   maximumImagesCount: 1,
+    			   width: 100,
+    			   height: 100,
+    			   quality: 100
+    			  };
+    	  
+    	  $cordovaImagePicker.getPictures(options)
+    	  	.then(function (results) {
+    	  		for (var i = 0; i < results.length; i++) {
+    		        console.log('Image URI: ' + results[i]);
+    		        $scope.registration.imgSrc = results[i];
+    	  			}
+    		    }, function(error) {
+    		    	console.log('Error: ' + error);
+    		    });
+      		}; 
+      
   });
   
+  
+
 })
 
 		//MENU CONTROLLER
@@ -240,7 +266,7 @@ angular.module('conFusion.controllers', [])
             
             //Assignment 2
             //DISH DETAIL POPOVER OPEN
-            			$ionicPopover.fromTemplateUrl('templates/dish-detail-popover.html', {
+            $ionicPopover.fromTemplateUrl('templates/dish-detail-popover.html', {
               scope: $scope
             }).then(function(popover) {
               $scope.popover = popover;
