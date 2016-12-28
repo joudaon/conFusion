@@ -256,7 +256,7 @@ angular.module('conFusion.controllers', [])
         //////////////////////////////////////
         //DISHDETAIL CONTROLLER
         //////////////////////////////////////
-        .controller('DishDetailController', ['$scope', '$stateParams', 'dish', 'menuFactory', 'baseURL', '$ionicPopover', 'favoriteFactory', '$ionicModal', function($scope, $stateParams, dish, menuFactory, baseURL, $ionicPopover, favoriteFactory, $ionicModal) {
+        .controller('DishDetailController', ['$scope', '$stateParams', 'dish', 'menuFactory', 'baseURL', '$ionicPopover', 'favoriteFactory', '$ionicModal', '$timeout',function($scope, $stateParams, dish, menuFactory, baseURL, $ionicPopover, favoriteFactory, $ionicModal, $timeout) {
             
         	$scope.baseURL = baseURL;
             $scope.dish = {};
@@ -339,7 +339,7 @@ angular.module('conFusion.controllers', [])
                 console.log($scope.mycomment);
                 
                 $scope.dish.comments.push($scope.mycomment);
-                menuFactory.getDishes().update({id:$scope.dish.id},$scope.dish);
+                menuFactory.update({id:$scope.dish.id},$scope.dish);
                          
                 $scope.mycomment = {rating:5, comment:"", author:"", date:""};
         
@@ -348,24 +348,6 @@ angular.module('conFusion.controllers', [])
 
         }])
 
-        //DISHCOMMENT CONTROLLER
-        .controller('DishCommentController', ['$scope', 'menuFactory', function($scope,menuFactory) {
-            
-            $scope.mycomment = {rating:5, comment:"", author:"", date:""};
-            
-            $scope.submitComment = function () {
-                
-                $scope.mycomment.date = new Date().toISOString();
-                console.log($scope.mycomment);
-                
-                $scope.dish.comments.push($scope.mycomment);
-        menuFactory.getDishes().update({id:$scope.dish.id},$scope.dish);
-                
-                $scope.commentForm.$setPristine();
-                
-                $scope.mycomment = {rating:5, comment:"", author:"", date:""};
-            }
-        }])
 
         // implement the IndexController and About Controller here
 
