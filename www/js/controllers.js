@@ -256,7 +256,7 @@ angular.module('conFusion.controllers', [])
         //////////////////////////////////////
         //DISHDETAIL CONTROLLER
         //////////////////////////////////////
-        .controller('DishDetailController', ['$scope', '$stateParams', 'dish', 'menuFactory', 'baseURL', '$ionicPopover', 'favoriteFactory', '$ionicModal', '$timeout',function($scope, $stateParams, dish, menuFactory, baseURL, $ionicPopover, favoriteFactory, $ionicModal, $timeout) {
+        .controller('DishDetailController', ['$scope', '$stateParams', 'dish', 'menuFactory', 'baseURL', '$ionicPopover', 'favoriteFactory', '$ionicModal', '$timeout', '$ionicPlatform', '$cordovaLocalNotification', '$cordovaToast', function($scope, $stateParams, dish, menuFactory, baseURL, $ionicPopover, favoriteFactory, $ionicModal, $timeout, $ionicPlatform, $cordovaLocalNotification, $cordovaToast) {
             
         	$scope.baseURL = baseURL;
             $scope.dish = {};
@@ -327,6 +327,28 @@ angular.module('conFusion.controllers', [])
             $scope.addFavorite = function () {
                 favoriteFactory.addToFavorites($scope.dish.id);
                 $scope.closePopover();
+                
+                $ionicPlatform.ready(function () {
+                    $cordovaLocalNotification.schedule({
+                        id: 1,
+                        title: "Added Favorite",
+                        text: $scope.dish.name
+                    }).then(function () {
+                        console.log('Added Favorite '+$scope.dish.name);
+                    },
+                    function () {
+                        console.log('Failed to add Notification ');
+                    });
+
+                    $cordovaToast
+                      .showShortBottom('Added Favorite '+$scope.dish.name, 'long', 'center')
+                      .then(function (success) {
+                          // success
+                      }, function (error) {
+                          // error
+                      });
+                });
+                
               };
              //END ADD DISH TO FAVORITES
             
@@ -372,7 +394,7 @@ angular.module('conFusion.controllers', [])
                     }])
                  
         //FAVORITES CONTROLLER
-		.controller('FavoritesController', ['$scope', 'dishes', 'favorites', 'favoriteFactory','baseURL', '$ionicListDelegate', '$ionicPopup', function ($scope, dishes, favorites, favoriteFactory, baseURL, $ionicListDelegate, $ionicPopup) {
+		.controller('FavoritesController', ['$scope', 'dishes', 'favorites', 'favoriteFactory','baseURL', '$ionicListDelegate', '$ionicPopup', '$cordovaVibration', function ($scope, dishes, favorites, favoriteFactory, baseURL, $ionicListDelegate, $ionicPopup, $cordovaVibration) {
 		
 			   	$scope.baseURL = baseURL;
 			    $scope.shouldShowDelete = false;
@@ -399,6 +421,8 @@ angular.module('conFusion.controllers', [])
 		            if (res) {
 		                console.log('Ok to delete');
 		                favoriteFactory.deleteFromFavorites(index);
+		                $cordovaVibration.vibrate(100);
+		                console.log('Mobile vibration');
 		            } else {
 		                console.log('Canceled delete');
 		            }
