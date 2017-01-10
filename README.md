@@ -25,7 +25,7 @@ $ npm -v
 Implementing a simple HTTP Server
 ---------------------------------
 
-1. Create a file name server.js
+* Create a file name server.js
 
 ```javascript
 $ var http = require('http');
@@ -43,13 +43,12 @@ server.listen(port, hostname, function(){
 });
 ``` 
 
-2. Run the server 
+* Run the server 
 
 ```sh
 $ node server
 ```
 
-3. Type "http://locahost:3000" in the browser and see result
+* Type "http://locahost:3000" in the browser and see result
 
-4. Also "Postman" (https://www.getpostman.com/) Chrome extension can be used to send requests to the server and see the response 
-
+* Also "Postman" (https://www.getpostman.com/) Chrome extension can be used to send requests to the server and see the response 
