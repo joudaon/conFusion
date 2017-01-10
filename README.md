@@ -22,8 +22,8 @@ $ npm -v
 ```
 
 
-Implementing a simple HTTP Server
----------------------------------
+Implementing a simple Node HTTP Server
+--------------------------------------
 
 * Create a file name server.js
 
