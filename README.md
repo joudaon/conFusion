@@ -22,217 +22,34 @@ $ npm -v
 ```
 
 
-Bower
-----------------
+Implementing a simple HTTP Server
+---------------------------------
 
-Keeping track of all these packages and making sure they are up to date (or set to the specific versions you need) is tricky. Bower to the rescue!
+1. Create a file name server.js
 
-Bower can manage components that contain HTML, CSS, JavaScript, fonts or even image files. Bower doesn’t concatenate or minify code or do anything else - it just installs the right versions of the packages you need and their dependencies.
+```javascript
+$ var http = require('http');
 
-To get started, Bower works by fetching and installing packages from all over, taking care of hunting, finding, downloading, and saving the stuff you’re looking for. Bower keeps track of these packages in a manifest file, bower.json. How you use packages is up to you. Bower provides hooks to facilitate using packages in your tools and workflows.
+var hostname = 'localhost';
+var port = 3000;
 
-Bower is optimized for the front-end. If multiple packages depend on a package - jQuery for example - Bower will download jQuery just once. This is known as a flat dependency graph and it helps reduce page load.
+var server = http.createServer(function(req, res){
+  console.log(req.headers);
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+  res.end('<html><body><h1>Hello World</h1></body></html>');
+  })
+server.listen(port, hostname, function(){
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
+``` 
 
-#### <i class="icon-file"></i> Installing Bower global
-
-Install Bower as a global node module. To do this, type the following at the command prompt:
-
-```sh
-$ npm install -g bower
-```
-
-> **Note:** Precede this command with sudo on Mac or Linux
-
-#### <i class="icon-file"></i> Create a bower.json file
-
-Create and initialize a bower.json file by typing the following at the command prompt:
+2. Run the server 
 
 ```sh
-$ bower init
+$ node server
 ```
 
-Bower will ask several questions which you should answer.
+3. Type "http://locahost:3000" in the browser and see result
 
-#### <i class="icon-plus"></i> Installing Bower packages
+4. Also "Postman" (https://www.getpostman.com/) Chrome extension can be used to send requests to the server and see the response 
 
-```sh
-$ bower install bootstrap -S
-$ 
-$ bower install font-awesome -S
-```
-
-#### <i class="icon-wrench"></i> Installing Bower Components once in bower.json file
-
-Installs the project dependencies listed in bower.json
-
-```sh
-$ bower install 
-```
-
-#### <i class="icon-th-list"></i> Listing installed packages
-
-You can easily find out which packages are installed using the list command.
-
-```sh
-$ bower list 
-```
-
-#### <i class="icon-refresh"></i> Updating packages
-
-Updating a package is pretty straightforward. If you’ve used a bower.json file you can execute a simple update command to update all of the packages at once. However, the update tool will abide by the version restrictions you’ve specified in the bower.json file.
-
-```sh
-$ bower update 
-```
-To update an individual package you again use the update command, this time specifying the name of the package you wish to update.
-
-```sh
-$ bower update <package> 
-```
-
-#### More info
-
-More info at: 
-- https://bower.io/
-- http://blog.teamtreehouse.com/getting-started-bower
-
-
-Json Server
------------
-
-```sh
-$ npm install json-server -g
-```
-
-```sh
-$ json-server --watch db.json
-```
-
-ngResource
------------
-
-```sh
-$ bower install angular-resource -S
-```
-
-```sh
-$ json-server --watch db.json
-```
-
-
-Setting up Ionic Frameowork
----------------------------
-
-```sh
-$ npm install cordova ionic -g
-```
-#### <i class="icon-plus"></i> Creating an Ionic Project
-
-Go to a convenient location on your computer and create a folder named Ionic. Then move to that folder in the command window.
-To scaffold out a new Ionic project, type the following at the command prompt:
-
-```sh
-$ ionic start conFusion sidemenu
-```
-
-Move to the conFusion folder and examine the contents.
-To see the resulting project in your browser, type the following at the command prompt:
-
-```sh
-$ ionic serve
-```
-
-To see the resulting project as an IOS / Android in the browser:
-
-```sh
-$ ionic serve --lab
-```
-
-Cordova app
--------------
-
-Installing Cordova
-```sh
-$ npm install -g cordova
-```
-
-Create the App
-```sh
-$ cordova conFusion com.example.conFusion ConFusion
-```
-Add platform
-```sh
-$ cd conFusion
-$ cordova platform add android@6.1.0 --save
-$ cordova platform ls
-```
-
-Build the app:
-```sh
-$ cordova build
-```
-
-Test the app:
-```sh
-$ cordova emulate android
-```
-
-More info: https://cordova.apache.org/docs/en/latest/guide/cli/
-
-Splash Screen
--------------
-
-Create a folder called "resources" and add there "splash.png" and "icon.png" images.
-
-At the command prompt, type the following to prepare the icon and splash screen images for different screen resolutions and densities:
-
-```sh
-$ ionic resources
-```
-
-Notifications
--------------
-
-Adding the required Cordova Plugins: 
-
-Cordova plugin for the local notifications
-```sh
-$ ionic resources
-```
-
-Cordova Toast plugin 
-```sh
-$ ionic resources
-```
-
-Camera plugin
--------------
-
-Adding camera plugin:
-```sh
-$ ionic plugin add cordova-plugin-camera
-```
-
-Image Picker
-------------
-
-Adding image picker support:
-```sh
-$ cordova plugin add cordova-plugin-image-picker
-```
-
-Known issues
-------------
-
-Q: Splash page is not displayed in 6.0.0 version.
-
-A: When adding the platform add 6.1.0 version (http://stackoverflow.com/questions/40502425/cordova-splash-screen-not-displaying-image)
-
-
-Additional info
----------------
-
-#### <i class="icon-help-circled"></i> Help for writing readme.md document
-
-- List of supported StackEdit icons: https://stackedit.io/res/libs/fontello/demo.html
-- StackEdit Live editor: https://stackedit.io/
