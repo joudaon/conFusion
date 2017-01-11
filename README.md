@@ -67,3 +67,11 @@ Installing Morgan
 ```sh
 $ npm install morgan --save
 ```
+
+Installing body-parser. 
+
+> **Note:** BodyParser enables us to parse the data, but comes in in the request body, and then converted into JavaScript objects that are available In our request message that comes in. So it parses the data and then adds it as a JavaScript object to req object that we have access to in the functions that we use within our code.
+
+```sh
+$ npm install body-parser --save
+```
