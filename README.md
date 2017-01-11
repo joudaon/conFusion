@@ -1,8 +1,12 @@
 conFusion
 ===================
 
-Installing nodeJS
------------------
+### Table of Contents
+ 
+ - [Installing nodeJS](#installingnodejs)
+ - [Implementing a simple Node HTTP Server](#implementingasimplenodehttpserver)
+
+## Installing nodeJS
 
 To install Node on your machine, go to https://nodejs.org and click on the Download button. Depending on your computer's platform (Windows, MacOS or Linux), the appropriate installation package is downloaded. As an example, on a Mac, you will see the following web page. Click on the Download button. Follow along the instructions to install Node on your machine. (Note: Now Node gives you the option of installing a mature and dependable version and a more newer stable version. You can choose to install the mature and dependable version. I will continue to use this version in the course. You can choose to install the newer stable version if you wish. You may not see any perceptible differences between the two as users).
 
@@ -22,8 +26,8 @@ $ npm -v
 ```
 
 
-Implementing a simple Node HTTP Server
---------------------------------------
+## Implementing a simple Node HTTP Server
+
 
 * Create a file name server.js
 
