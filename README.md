@@ -51,4 +51,19 @@ $ node server
 
 * Type "http://locahost:3000" in the browser and see result
 
-* Also "Postman" (https://www.getpostman.com/) Chrome extension can be used to send requests to the server and see the response 
+* Also "Postman" (https://www.getpostman.com/) Chrome extension can be used to send requests to the server and see the response
+
+Setting up Express web Framework
+--------------------------------
+
+Installing Express Framework
+
+```sh
+$ npm install express --save
+```
+
+Installing Morgan
+
+```sh
+$ npm install morgan --save
+```
