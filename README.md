@@ -3,8 +3,8 @@ conFusion
 
 ### Table of Contents
  
- - [Installing nodeJS](#installingnodejs)
- - [Implementing a simple Node HTTP Server](#implementingasimplenodehttpserver)
+ - [Installing nodeJS](#installing-nodejs)
+ - [Implementing a simple Node HTTP Server](#implementing-a-simple-node-http-server)
 
 ## Installing nodeJS
 
