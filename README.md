@@ -1,7 +1,6 @@
-conFusion
-===================
+#conFusion
 
-### Table of Contents
+## Table of Contents
  
  - [Installing nodeJS](#installing-nodejs)
  - [Implementing a simple Node HTTP Server](#implementing-a-simple-node-http-server)
