@@ -5,6 +5,7 @@ conFusion
  
  - [Installing nodeJS](#installing-nodejs)
  - [Implementing a simple Node HTTP Server](#implementing-a-simple-node-http-server)
+ - [Setting up Express web Framework](Setting-up-Express-web-Framework)
 
 ## Installing nodeJS
 
@@ -57,8 +58,7 @@ $ node server
 
 * Also "Postman" (https://www.getpostman.com/) Chrome extension can be used to send requests to the server and see the response
 
-Setting up Express web Framework
---------------------------------
+## Setting up Express web Framework
 
 Installing Express Framework
 
