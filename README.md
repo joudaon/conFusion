@@ -5,6 +5,7 @@
  - [Installing nodeJS](#installing-nodejs)
  - [Implementing a simple Node HTTP Server](#implementing-a-simple-node-http-server)
  - [Setting up Express web Framework](#setting-up-express-web-framework)
+ - [Express Generator](#express-generator)
 
 ## Installing nodeJS
 
@@ -78,3 +79,27 @@ Installing body-parser.
 ```sh
 $ npm install body-parser --save
 ```
+
+## Express Generator
+
+Installing Express Generator globally
+```sh
+$ npm install express-generator -g
+```
+
+Scaffolding Express Application
+```sh
+$ express node-express-gen
+```
+
+Move to the "node-express-gen" just created folder and install node modules of package.json file.
+```sh
+$ npm install
+```
+
+To startup the server:
+```sh
+$ npm start
+```
+
+User postman and browser to localhost:3000
