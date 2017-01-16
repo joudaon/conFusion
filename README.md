@@ -103,3 +103,93 @@ $ npm start
 ```
 
 User postman and browser to localhost:3000
+
+## Setting up MongoDB
+
+### Running MongoDB Enterprise
+
+* Download "Entreprise Server" version (*.msi file) from http://www.mongodb.org/
+
+* Install the downloaded file
+
+> **Note:** These instructions assume that you have installed MongoDB to C:\Program Files\MongoDB\Server\3.4\.
+
+* Set up MongoDB environment
+```sh
+$ "C:\Program Files\MongoDB\Server\3.4\bin\mongod.exe" --dbpath "c:\test\mongodb\data"
+```
+
+* StartMongoDB
+```sh
+$ "C:\Program Files\MongoDB\Server\3.4\bin\mongod.exe"
+```
+
+* Connect to MongoDB
+```sh
+$ "C:\Program Files\MongoDB\Server\3.4\bin\mongo.exe
+```
+
+### Configure a Windows Service for MongoDB Enterprise
+
+* Open console as an administrator
+
+* Create directories
+```sh
+$ mkdir c:\data\db
+$ mkdir c:\data\log
+```
+
+* Create a configuration file 
+
+Create a configuration file. The file must set systemLog.path. Include additional configuration options as appropriate.
+
+For example, create a file at C:\Program Files\MongoDB\Server\3.4\mongod.cfg that specifies both systemLog.path and storage.dbPath:
+
+* Create directories
+```sh
+$ systemLog:
+$    destination: file
+$    path: c:\data\log\mongod.log
+$ storage:
+$    dbPath: c:\data\db
+```
+
+* Install MongoDB service
+```sh
+$ "C:\Program Files\MongoDB\Server\3.4\bin\mongod.exe" --config "C:\Program Files\MongoDB\Server\3.4\mongod.cfg" --install
+```
+
+* Start the MongoDB service
+```sh
+$ net start MongoDB
+```
+
+### DB Scripts
+
+* Create a database
+```sql
+$ use conFusion
+```
+
+* Show help 
+```sql
+$ db.help()
+```
+
+* Create a collection named dishes, and insert a new dish document in the collection:
+```sql
+$ db.dishes.insert({ name: "Uthapizza", description: "Test" });
+```
+
+* Print out information
+```sql
+$ db.dishes.find().pretty();
+```
+
+* Printing out timestamp
+```sql
+$ var id = new ObjectId();
+$ id.getTimestamp();
+```
+
+* Further installation instructions can be found [here] (https://docs.mongodb.com/manual/tutorial/install-mongodb-enterprise-on-windows/).
