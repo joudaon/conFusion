@@ -6,6 +6,7 @@
  - [Implementing a simple Node HTTP Server](#implementing-a-simple-node-http-server)
  - [Setting up Express web Framework](#setting-up-express-web-framework)
  - [Express Generator](#express-generator)
+ - [Setting up MongoDB](#setting-up-mongodb)
 
 ## Installing nodeJS
 
