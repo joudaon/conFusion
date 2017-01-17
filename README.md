@@ -7,6 +7,7 @@
  - [Setting up Express web Framework](#setting-up-express-web-framework)
  - [Express Generator](#express-generator)
  - [Setting up MongoDB](#setting-up-mongodb)
+ - [Configuring Node application to communicate with MongoDB server](#configuring-node-application-to-communicate-with-mongodb-server)
 
 ## Installing nodeJS
 
@@ -126,8 +127,10 @@ $ "C:\Program Files\MongoDB\Server\3.4\bin\mongod.exe"
 ```
 
 * Connect to MongoDB
+
+Run as an admin:
 ```sh
-$ "C:\Program Files\MongoDB\Server\3.4\bin\mongo.exe
+$ "C:\Program Files\MongoDB\Server\3.4\bin\mongo.exe"
 ```
 
 ### Configure a Windows Service for MongoDB Enterprise
@@ -194,3 +197,58 @@ $ id.getTimestamp();
 ```
 
 * Further installation instructions can be found [here] (https://docs.mongodb.com/manual/tutorial/install-mongodb-enterprise-on-windows/).
+
+## Configuring Node application to communicate with MongoDB server
+
+* Create a folder "node-mongodb" and move into the folder
+
+* Install Node MongoDB driver and the Assert module by typing the following at the command prompt:
+```sh
+$ npm install mongodb --save
+$ npm install assert --save
+```
+
+* Creating a simple node-mongodb application
+
+Create a new filed name "simpleserver.js" and add the following code:
+
+```sh
+$ npm install mongodb --save
+$ npm install assert --save
+```
+
+* Run the server 
+
+```js
+var MongoClient = require('mongodb').MongoClient,
+    assert = require('assert');
+
+// Connection URL
+var url = 'mongodb://localhost:27017/conFusion';
+// Use connect method to connect to the Server
+MongoClient.connect(url, function (err, db) {
+    assert.equal(err,null);
+    console.log("Connected correctly to server");
+        var collection = db.collection("dishes");
+        collection.insertOne({name: "Uthapizza", description: "test"}, function(err,result){
+        assert.equal(err,null);
+        console.log("After Insert:");
+        console.log(result.ops);
+                collection.find({}).toArray(function(err,docs){
+            assert.equal(err,null);
+            console.log("Found:");
+            console.log(docs);
+                        db.dropCollection("dishes", function(err, result){
+               assert.equal(err,null);
+               db.close();
+            });
+        });
+            });
+});
+```
+
+* Start the server
+
+```sh
+$ node simpleserver
+```
