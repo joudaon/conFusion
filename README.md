@@ -35,7 +35,7 @@ $ npm -v
 * Create a file name server.js
 
 ```javascript
-$ var http = require('http');
+var http = require('http');
 
 var hostname = 'localhost';
 var port = 3000;
@@ -151,11 +151,11 @@ For example, create a file at C:\Program Files\MongoDB\Server\3.4\mongod.cfg tha
 
 * Create directories
 ```sh
-$ systemLog:
-$    destination: file
-$    path: c:\data\log\mongod.log
-$ storage:
-$    dbPath: c:\data\db
+systemLog:
+  destination: file
+  path: c:\data\log\mongod.log
+storage:
+  dbPath: c:\data\db
 ```
 
 * Install MongoDB service

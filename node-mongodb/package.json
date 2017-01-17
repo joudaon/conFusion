@@ -1,0 +1,17 @@
+{
+  "name": "node-mongodb",
+  "version": "1.0.0",
+  "description": "node-mongodb server",
+  "main": "operations.js",
+  "dependencies": {
+    "assert": "^1.4.1",
+    "mongodb": "^2.2.21"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "joudaon",
+  "license": "ISC"
+}
