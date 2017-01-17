@@ -212,13 +212,6 @@ $ npm install assert --save
 
 Create a new filed name "simpleserver.js" and add the following code:
 
-```sh
-$ npm install mongodb --save
-$ npm install assert --save
-```
-
-* Run the server 
-
 ```js
 var MongoClient = require('mongodb').MongoClient,
     assert = require('assert');
@@ -247,7 +240,7 @@ MongoClient.connect(url, function (err, db) {
 });
 ```
 
-* Start the server
+* Run the server 
 
 ```sh
 $ node simpleserver
