@@ -9,6 +9,7 @@
  - [Setting up MongoDB](#setting-up-mongodb)
  - [Configuring Node application to communicate with MongoDB server](#configuring-node-application-to-communicate-with-mongodb-server)
  - [Using Mongoose methods](#using-mongoose-methods)
+ - [Using mongoose-currency](#using-mongoose-currency)
 
 ## Installing nodeJS
 
@@ -256,3 +257,11 @@ $ node simpleserver
 $ npm install mongoose --save
 $ npm install assert --save
 ```
+
+## Using mongoose-currency
+
+```sh
+$ npm install mongoose-currency --save
+```
+
+More info at :https://www.npmjs.com/package/mongoose-currency
