@@ -8,6 +8,7 @@
  - [Express Generator](#express-generator)
  - [Setting up MongoDB](#setting-up-mongodb)
  - [Configuring Node application to communicate with MongoDB server](#configuring-node-application-to-communicate-with-mongodb-server)
+ - [Using Mongoose methods](#using-mongoose-methods)
 
 ## Installing nodeJS
 
@@ -210,7 +211,7 @@ $ npm install assert --save
 
 * Creating a simple node-mongodb application
 
-Create a new filed name "simpleserver.js" and add the following code:
+Create a new file named "simpleserver.js" and add the following code:
 
 ```js
 var MongoClient = require('mongodb').MongoClient,
@@ -244,4 +245,14 @@ MongoClient.connect(url, function (err, db) {
 
 ```sh
 $ node simpleserver
+```
+
+## Using Mongoose methods
+
+* Create a folder named "node-mongoose" and move into the folder
+
+* Install Mongoose by typing the following at the command prompt
+```sh
+$ npm install mongoose --save
+$ npm install assert --save
 ```
