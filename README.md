@@ -112,7 +112,9 @@ User postman and browser to localhost:3000
 
 ### Running MongoDB Enterprise
 
-* Download "Entreprise Server" version (*.msi file) from http://www.mongodb.org/
+* Download "Entreprise Server" version (*.msi file) from http://www.mongodb.org/ 
+
+Installation information can be found here: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/
 
 * Install the downloaded file
 
