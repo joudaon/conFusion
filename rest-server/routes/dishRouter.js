@@ -41,10 +41,6 @@ dishRouter.route('/')
 
 //URL ending: /:dishId
 dishRouter.route('/:dishId')
-.all(function(req,res,next) {
-      res.writeHead(200, { 'Content-Type': 'text/plain' });
-      next();
-})
 
 .get(function(req,res,next){
     Dishes.findById(req.params.dishId, function (err, dish) {
