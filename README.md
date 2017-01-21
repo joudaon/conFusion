@@ -275,3 +275,8 @@ More info at :https://www.npmjs.com/package/mongoose-currency
 ```sh
 $ express rest-server
 ```
+
+* Running the server
+```sh
+$ npm start on the root of the folder
+```
