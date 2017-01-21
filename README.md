@@ -10,6 +10,7 @@
  - [Configuring Node application to communicate with MongoDB server](#configuring-node-application-to-communicate-with-mongodb-server)
  - [Using Mongoose methods](#using-mongoose-methods)
  - [Using mongoose-currency](#using-mongoose-currency)
+ - [REST API with Express, MongoDB and Mongoose](#rest-api-with-express-mongodb-and-mongoose)
 
 ## Installing nodeJS
 
@@ -267,3 +268,10 @@ $ npm install mongoose-currency --save
 ```
 
 More info at :https://www.npmjs.com/package/mongoose-currency
+
+## REST API with Express, MongoDB and Mongoose
+
+* Scaffold out an Express application named rest-server using the Express generator at a convenient location on your computer by typing the following at the prompt:
+```sh
+$ express rest-server
+```
