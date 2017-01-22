@@ -277,6 +277,10 @@ $ express rest-server
 ```
 
 * Running the server
+
+Type the following code at the root of the folder:
 ```sh
-$ npm start on the root of the folder
+$ npm start 
 ```
+
+Use Postman to test PUT, POST and so on methods with dishes
