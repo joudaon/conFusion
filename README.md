@@ -12,6 +12,7 @@
  - [Using mongoose-currency](#using-mongoose-currency)
  - [REST API with Express, MongoDB and Mongoose](#rest-api-with-express-mongodb-and-mongoose)
  - [Using Cookies](#using-cookies)
+ - [Express Sessions](#express-sessions)
 
 ## Installing nodeJS
 
@@ -292,3 +293,11 @@ To install the cookie-parser Express middleware, type the following at the promp
 ```sh
 $ npm install cookie-parser --save 
 ```
+
+## Express Sessions
+To install express-session and session-file-store Node modules, type the following at the prompt:
+```sh
+$ npm install express-session session-file-store --save 
+```
+
+If "Postman" does not display cookies check following link: https://www.getpostman.com/docs/interceptor_cookies
