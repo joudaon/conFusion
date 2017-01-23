@@ -13,6 +13,7 @@
  - [REST API with Express, MongoDB and Mongoose](#rest-api-with-express-mongodb-and-mongoose)
  - [Using Cookies](#using-cookies)
  - [Express Sessions](#express-sessions)
+ - [User Authentication with Passport](#user-authentication-with-passport)
 
 ## Installing nodeJS
 
@@ -301,3 +302,11 @@ $ npm install express-session session-file-store --save
 ```
 
 If "Postman" does not display cookies check following link: https://www.getpostman.com/docs/interceptor_cookies
+
+## User Authentication with Passport
+
+Install the Passport related Node modules and the jsonwebtoken module as follows:
+```sh
+$ npm install passport passport-local passport-local-mongoose --save
+$ npm install jsonwebtoken --save
+```
