@@ -9,6 +9,7 @@
   "author": "joudaon",
   "license": "ISC",
   "dependencies": {
+    "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
     "morgan": "^1.7.0"
   }

@@ -11,6 +11,7 @@
  - [Using Mongoose methods](#using-mongoose-methods)
  - [Using mongoose-currency](#using-mongoose-currency)
  - [REST API with Express, MongoDB and Mongoose](#rest-api-with-express-mongodb-and-mongoose)
+ - [Using Cookies](#using-cookies)
 
 ## Installing nodeJS
 
@@ -284,3 +285,10 @@ $ npm start
 ```
 
 Use Postman to test PUT, POST and so on methods with dishes
+
+## Using Cookies
+
+To install the cookie-parser Express middleware, type the following at the prompt:
+```sh
+$ npm install cookie-parser --save 
+```
