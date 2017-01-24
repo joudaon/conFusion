@@ -4,12 +4,18 @@ var passport = require('passport');
 var User = require('../models/user');
 var Verify    = require('./verify');
 
+router.route('/')
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+.get(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function(req, res, next) {
+	User.find({}, function (err, user) {
+        if (err) throw err;
+        res.json(user);
+	});
+})
 
-router.post('/register', function(req, res) {
+//URL ending - /register
+router.route('/register')
+.post(function(req, res) {
     User.register(new User({ username : req.body.username }),
       req.body.password, function(err, user) {
         if (err) {
@@ -19,9 +25,11 @@ router.post('/register', function(req, res) {
             return res.status(200).json({status: 'Registration Successful!'});
         });
     });
-});
+})
 
-router.post('/login', function(req, res, next) {
+//URL ending - /login
+router.route('/login')
+.post(function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
     if (err) {
       return next(err);
@@ -46,9 +54,11 @@ router.post('/login', function(req, res, next) {
       });
     });
   })(req,res,next);
-});
+})
 
-router.get('/logout', function(req, res) {
+//URL ending logout
+router.route('/logout')
+.get(function(req, res) {
     req.logout();
   res.status(200).json({
     status: 'Bye!'

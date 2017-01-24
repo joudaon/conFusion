@@ -198,6 +198,11 @@ $ db.dishes.insert({ name: "Uthapizza", description: "Test" });
 $ db.dishes.find().pretty();
 ```
 
+* Setting administrative privileges to a user
+```sql
+$ db.users.update({username:"admin"},{$set:{admin:true}})
+```
+
 * Printing out timestamp
 ```sql
 $ var id = new ObjectId();
