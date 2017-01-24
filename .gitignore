@@ -6,3 +6,12 @@ platforms/
 plugins/
 /bin/
 sessions/
+#HTTPS certification files in bin bolder
+.rnd
+ca.crt
+ca.key
+certificate.pem
+ia.crt
+ia.csr
+ia.key
+ia.p12

@@ -14,6 +14,7 @@
  - [Using Cookies](#using-cookies)
  - [Express Sessions](#express-sessions)
  - [User Authentication with Passport](#user-authentication-with-passport)
+ - [Creating your OpenSSL Certificate on Windows](#creating-your-openssl-certificate-on-windows)
 
 ## Installing nodeJS
 
@@ -203,12 +204,12 @@ $ db.dishes.find().pretty();
 $ db.users.update({username:"admin"},{$set:{admin:true}})
 ```
 
-* Drop database;
+* Drop database
 ```sql
 $ db.dropDatabase();
 ```
 
-*List all databases
+* List all databases
 ```sql
 $ show dbs
 ```
@@ -325,3 +326,25 @@ Install the Passport related Node modules and the jsonwebtoken module as follows
 $ npm install passport passport-local passport-local-mongoose --save
 $ npm install jsonwebtoken --save
 ```
+
+## Creating your OpenSSL Certificate on Windows
+
+* Download [Win32 OpenSSL v1.0.2j](http://slproweb.com/download/Win32OpenSSL-1_0_2j.exe) (OpenSSL Installer) from: http://slproweb.com/products/Win32OpenSSL.html
+
+* Type following commands at the terminal once in \bin folder:
+```sh
+$ set RANDFILE=c:\...\server\bin\.rnd
+$ set OPENSSL_CONF=C:\OpenSSL-Win32\bin\openssl.cfg
+$ "c:\OpenSSL-Win32\bin\openssl.exe"
+$ genrsa -out ca.key 4096
+$ req -new -x509 -days 1826 -key ca.key -out ca.crt
+$ genrsa -out ia.key 4096
+$ req -new -key ia.key -out ia.csr
+$ x509 -req -days 730 -in ia.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out ia.crt
+$ pkcs12 -export -out ia.p12 -inkey ia.key -in ia.crt -chain -CAfile ca.crt
+$ x509 -in ca.crt -out certificate.pem -outform PEM
+```
+
+* More info at: https://blog.didierstevens.com/2015/03/30/howto-make-your-own-cert-with-openssl-on-windows/
+
+http://stackoverflow.com/questions/4691699/how-to-convert-crt-to-pem
