@@ -331,7 +331,7 @@ $ npm install jsonwebtoken --save
 
 * Download [Win32 OpenSSL v1.0.2j](http://slproweb.com/download/Win32OpenSSL-1_0_2j.exe) (OpenSSL Installer) from: http://slproweb.com/products/Win32OpenSSL.html
 
-* Type following commands at the terminal once in \bin folder:
+* Type following commands at the terminal once in \bin\ folder:
 ```sh
 $ set RANDFILE=c:\...\server\bin\.rnd
 $ set OPENSSL_CONF=C:\OpenSSL-Win32\bin\openssl.cfg
@@ -345,6 +345,7 @@ $ pkcs12 -export -out ia.p12 -inkey ia.key -in ia.crt -chain -CAfile ca.crt
 $ x509 -in ca.crt -out certificate.pem -outform PEM
 ```
 
-* More info at: https://blog.didierstevens.com/2015/03/30/howto-make-your-own-cert-with-openssl-on-windows/
+* More info at: 
+https://blog.didierstevens.com/2015/03/30/howto-make-your-own-cert-with-openssl-on-windows/
 
 http://stackoverflow.com/questions/4691699/how-to-convert-crt-to-pem
