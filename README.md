@@ -15,6 +15,7 @@
  - [Express Sessions](#express-sessions)
  - [User Authentication with Passport](#user-authentication-with-passport)
  - [Creating your OpenSSL Certificate on Windows](#creating-your-openssl-certificate-on-windows)
+ - [Facebook Passport OAuth](#facebook-passport-oauth)
 
 ## Installing nodeJS
 
@@ -350,3 +351,13 @@ $ x509 -in ca.crt -out certificate.pem -outform PEM
 https://blog.didierstevens.com/2015/03/30/howto-make-your-own-cert-with-openssl-on-windows/
 
 http://stackoverflow.com/questions/4691699/how-to-convert-crt-to-pem
+
+## Facebook Passport OAuth
+
+* Install passport-facebook module by typing the following at the prompt:
+```sh
+$ npm install passport-facebook --save
+```
+*Registering your app on Facebook 
+
+Go to https://developers.facebook.com/apps/ and register your app by following the instructions there and obtain your App ID and App Secret, and then update config.js with the information.
