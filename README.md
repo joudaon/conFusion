@@ -346,6 +346,7 @@ $ x509 -in ca.crt -out certificate.pem -outform PEM
 ```
 
 * More info at: 
+
 https://blog.didierstevens.com/2015/03/30/howto-make-your-own-cert-with-openssl-on-windows/
 
 http://stackoverflow.com/questions/4691699/how-to-convert-crt-to-pem
