@@ -203,6 +203,16 @@ $ db.dishes.find().pretty();
 $ db.users.update({username:"admin"},{$set:{admin:true}})
 ```
 
+* Drop database;
+```sql
+$ db.dropDatabase();
+```
+
+*List all databases
+```sql
+$ show dbs
+```
+
 * Printing out timestamp
 ```sql
 $ var id = new ObjectId();
