@@ -358,6 +358,6 @@ http://stackoverflow.com/questions/4691699/how-to-convert-crt-to-pem
 ```sh
 $ npm install passport-facebook --save
 ```
-*Registering your app on Facebook 
+* Registering your app on Facebook 
 
 Go to https://developers.facebook.com/apps/ and register your app by following the instructions there and obtain your App ID and App Secret, and then update config.js with the information.
