@@ -16,6 +16,7 @@
  - [User Authentication with Passport](#user-authentication-with-passport)
  - [Creating your OpenSSL Certificate on Windows](#creating-your-openssl-certificate-on-windows)
  - [Facebook Passport OAuth](#facebook-passport-oauth)
+ - [Getting Started with Loopback](#getting-started-with-loopback)
 
 ## Installing nodeJS
 
@@ -361,3 +362,31 @@ $ npm install passport-facebook --save
 * Registering your app on Facebook 
 
 Go to https://developers.facebook.com/apps/ and register your app by following the instructions there and obtain your App ID and App Secret, and then update config.js with the information.
+
+## Getting Started with Loopback
+
+* At the command prompt, type the following to install Loopback command-line tools globally:
+```sh
+$ npm install strongloop -g
+```
+
+If "gyp" is not on Windows computer, follow following instructions: https://github.com/nodejs/node-gyp
+
+* To Scaffold Out a Loopback Application, at a convenient location on your computer, type the following at the prompt to scaffold out a Loopback application:
+```sh
+$ slc loopback
+```
+
+* For the application name, type loopback-server, and accept the suggested Loopback directory. Then for the application type select api-server. This will create a folder named loopback-server. Move to this folder in your terminal window.
+
+* To create a Loopback model for dishes, type the following at the prompt:
+```sh
+$ slc loopback:model
+```
+
+* Once model with different fields have been created, Start the server:
+```sh
+$ node .
+```
+
+* Browse to: http://localhost:3000/explorer/
