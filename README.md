@@ -390,3 +390,18 @@ $ node .
 ```
 
 * Browse to: http://localhost:3000/explorer/
+
+* Setting up Access control list
+```sh
+$ slc loopback:acl
+```
+
+* Setting up loopback relations
+```sh
+$ slc loopback:relation
+```
+
+* Define and Use a Mixin (allows us to add timestamps)
+```sh
+$ npm install loopback-ds-timestamp-mixin --save
+```
