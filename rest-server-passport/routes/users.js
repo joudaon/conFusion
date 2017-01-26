@@ -54,8 +54,9 @@ router.route('/login')
         });
       }
         
-      var token = Verify.getToken(user);
-              res.status(200).json({
+      var token = Verify.getToken({"username":user.username, "_id":user._id, "admin":user.admin});
+      
+      res.status(200).json({
         status: 'Login successful!',
         success: true,
         token: token
