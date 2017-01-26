@@ -211,6 +211,11 @@ $ db.users.update({username:"admin"},{$set:{admin:true}})
 $ db.dropDatabase();
 ```
 
+* Drop collection (table)
+```sql
+$ db.COLLECTION_NAME.drop();
+```
+
 * List all databases
 ```sql
 $ show dbs
