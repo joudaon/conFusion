@@ -38,13 +38,18 @@ exports.verifyOrdinaryUser = function (req, res, next) {
 
 //Admin User function
 exports.verifyAdmin = function(req, res, next){
-    var isAdmin = req.decoded._doc.admin;
-    if (!isAdmin) {
-        var err = new Error('You do not have permission!');
-        err.status = 500;
-        next(err);
-    }
-    if (isAdmin) {
-        next();
-    }
+	if (!req.decoded){
+		var err = new Error ('You are not authorized to perform this action');
+		err.status = 403;
+		return next (err)
+	} else {
+		var id = req.decoded._id;
+		
+		if (!req.decoded.admin){
+			var err = new Error ('You are not authorized to perform this action');
+			err.status = 403;
+			return next(err);
+		} else
+			next;
+	}
 };
